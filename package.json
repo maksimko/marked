@@ -4,6 +4,7 @@
   "author": "Christopher Jeffrey",
   "version": "15.0.9",
   "type": "module",
+  "react-native": "./src/marked.ts",
   "main": "./lib/marked.cjs",
   "module": "./lib/marked.esm.js",
   "browser": "./lib/marked.umd.js",
@@ -16,6 +17,7 @@
     "bin/",
     "lib/",
     "man/",
+    "src/",
     "marked.min.js"
   ],
   "exports": {
