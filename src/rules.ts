@@ -170,7 +170,11 @@ const br = /^( {2,}|\\)\n(?!\s*$)/;
 const inlineText = /^(`+|[^`])(?:(?= {2,}\n)|[\s\S]*?(?:(?=[\\<!\[`*_]|\b_|$)|[^ ](?= {2,}\n)))/;
 
 // list of unicode punctuation marks, plus any missing characters from CommonMark spec
-const _punctuation = '\\p{P}\\p{S}';
+// const _punctuation = '\\p{P}\\p{S}';
+// Alternative to unicodes to workaround herems issue
+//\\p{P} => [!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]
+//\\p{S} => [+\-*/=<>^~$¢£¤¥֏€₣₤₥₦₧₨₩₪₫€₭₮₯₹¤©®™§¶] 
+const _punctuation = "!\"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~+\\-*/=<>^~$¢£¤¥֏€₣₤₥₦₧₨₩₪₫€₭₮₯₹¤©®™§¶"
 const punctuation = edit(/^((?![*_])[\spunctuation])/, 'u')
   .replace(/punctuation/g, _punctuation).getRegex();
 
